@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0px; 
+            margin: 0px;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-wb {
+            background-color: #ffffff;
+            color: #121212;
+            +
+        }
+        .btn-wb:hover{
+            background-color: #ece3e3f1;
+            
+        }
+        .btn-tb {
+            background-color: transparent;
+            color: #ffffff;
+
+        }
+        .btn-tb:hover{
+            background-color: #ece3e3f1;
+            color: #112211;
+        }
+        .btn-tbb {
+            background-color: transparent;
+            color: #121212;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .btn-tbb:hover{
+            background-color: rgba(141, 211, 186, 0.808);
+        }
+
+        .btn-cb {
+            background-color: rgba(141, 211, 187, 1);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .btn-cb:hover{
+            background-color: rgba(141, 211, 186, 0.808);
+        }
+
+        .btn-cb svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-tbb svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid rgba(141, 211, 187, 1);
+        }
+        .btn-outline:hover{
+            background-color: rgba(141, 211, 186, 0.808);
+        }
+        .mainContent {
+            padding: 30px;
+            background-color: #fafbfa;
+        }
+
+        /*navbar section*/
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 32px;
+        }
+
+        .navRight {
+            display: flex;
+            gap: 20px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .navLeft {
+            display: flex;
+            gap: 20px;
+            color: #ffffff;
+        }
+
+        .navLeft svg {
+            height: 24px;
+            width: 24px;
+            align-items: center;
+        }
+
+        .navbar img {
+            height: 36px;
+            width: auto;
+        }
+
+        .findFlights,
+        .findStays {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        /*hero section*/
+        .heroContent {
+            margin-top: 84px;
+            margin-bottom: 150px;
+        }
+
+        .heroContent h3 {
+            font-size: 30px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .heroContent h1 {
+            font-size: 90px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .heroContent p {
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .heroSection {
+            padding-bottom: 90px;
+            border-radius: 24px;
+            background-image: url(/bgImg.png);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 0;
+        }
+
+        .heroSection::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+            position: absolute;
+            top: 0px;
+        }
+
+        /*form section */
+        .flightForm {
+            margin: -80px 74px 0px 74px;
+            z-index: 2;
+            background-color: white;
+            padding: 16px 32px 16px 32px;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0px 4px 16px 0px rgba(141, 211, 187, 0.15);
+
+        }
+
+        .formTitle {
+            padding: 12px 0px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid rgba(141, 211, 187, 0.15);
+        }
+
+        .inputFirst {
+            border: 1px solid #79747e;
+            position: relative;
+            border-radius: 4px;
+            width: fit-content;
+            padding-right: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .inputFirst label {
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            background-color: #ffffff;
+        }
+
+        .inputFirst input {
+            padding: 16px;
+            border: none;
+            border-radius: 4px;
+            flex-grow: 1;
+        }
+
+        .inputFirst div svg {
+            height: 24px;
+            width: 24px;
+            background-color: white;
+        }
+
+        .flightForm form {
+            display: flex;
+            gap: 20px;
+            padding: 24px 0px;
+        }
+
+        .flightForm form .inputFirst {
+            flex-grow: 1;
+        }
+
+        .btnWrapper {
+            display: flex;
+            gap: 20px;
+            justify-content: end;
+
+        }
+
+        /*destination sectiont*/
+        .destination {
+            margin-top: 60px;
+            padding: 16px 32px 16px 32px;
+            margin: 80px 74px 0px 74px;
+        }
+
+        .destinationTitle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .destinationText h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .destinationText p {
+            font-size: 16px;
+            color: black;
+        }
+
+        .destinationCardWrapper {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .cardWrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 16px;
+            flex-grow: 1;
+            box-shadow: 0px 4px 16px 0px rgba(17, 34, 17, 0.05);
+
+        }
+
+        .cardWrapper img {
+            height: 90px;
+            width: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cardWrapper h4 {
+            font-size: 16px;
+            color: rgba(17, 34, 17, 1);
+            opacity: 70%;
+            margin-bottom: 8px;
+        }
+
+        .cardWrapper>div>div {
+            color: rgba(17, 34, 17, 1);
+            display: flex;
+            gap: 8px;
+        }
+
+        .hotel {
+            padding: 30px 20px 32px 30px;
+            margin: 80px 0px 0px 0px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .hotel img {
+            height: 50%;
+            width: 50%;
+        }
+
+        /*review section*/
+ .reviewCardWrapper {
+    margin-top: 40px;
+    display: flex;
+    gap: 46px;
+    overflow-x: scroll;
+}
+
+.reviews {
+    margin-top: 80px;
+    padding: 30px 20px 32px 30px;
+    margin: 80px 0px 0px 0px;
+}
+
+.reviewCard {
+    padding: 24px;
+    border-radius: 20px;
+    height: 100%;
+    background-color: #ffff;
+    position: relative;
+    z-index: 0;
+    box-shadow: 2px 4px 16px 0px rgba(17, 34, 17, 0.10);
+}
+.reviewPseudo{
+    width: 33%;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 0;
+}
+.reviewPseudo::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 26px;
+    left: 26px;
+    border-radius: 20px;
+    z-index: -1;
+    background-color: rgba(141, 211, 187, 1);
+}
+
+.reviewCard h4 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.reviewCard p:nth-child(2) {
+    color: #112211;
+    opacity: 0.5;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.reviewCard p:nth-child(6) {
+    color: #112211;
+    opacity: 0.5;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.reviewCard h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #112211;
+    margin-bottom: 16px;
+}
+
+.reviewCard h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.stars{
+    margin-bottom: 20px;
+    color: #FFC107;
+}
+
+.stars .fa-solid {
+    color: #FFC107 !important;
+    font-size: 24px;
+
+}
+
+.companyWrap {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.companyWrap span {
+    font-size: 12px;
+    color: #112211;
+    opacity: 0.4;
+}
+
+.reviewCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+/*subscribe section*/
+.subscribe{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(205, 234, 225, 1);
+    border-radius: 20px;
+    padding: 0px 24px;
+    margin-top: -150px;
+}
+
+.subscribe h2{
+    font-size: 44px;
+    font-weight: 500;
+}
+.subscribe h3{
+    font-size: 20px;
+    color: #112211;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+.subscribe p{
+    color: #112211;
+    margin-bottom: 16px;
+    opacity: 0.7;
+}
+.subscribe input{
+    padding: 18px 16px ;
+    border-radius: 4px;
+    background-color: white;
+    border: none;
+    font-size: 16px;
+    width: 300px;
+}
+.subscribe button{
+    padding: 18px 24px;
+    border-radius: 4px;
+    background-color: rgba(17, 34, 17, 1);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+}
+.subscribe button:hover{
+    background-color: rgba(17, 34, 17, 0.89);
+    cursor: pointer;
+}
+/*footer section*/
+.footer{
+    padding: 30px ;
+    background-color: rgba(141, 211, 187, 1);
+    margin-top: 200px;
+}
+
+.footerContent{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+.footer1 img{
+    height: 40px;
+    width: auto;
+    margin-bottom: 24px;
+}
+.socialMedias{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.socialMedias i{
+    font-size: 20px;
+}
+.footer2 h4{
+    font-size: 16px;
+    font-weight: 600;
+    color: #112211;
+    margin-bottom: 18px;
+
+}
+.footer2 ul{
+    list-style: none;
+}
+.footer2 li{
+    font-size:14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    opacity: 0.7;
+}
+/*flight hotel section*/
+.flightHotel{
+    display: flex;
+    gap: 20px;
+}
+.flightCard{
+    background-image: url(./Rectangle\ 40.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    flex-grow: 1;
+    color: #ffffff;
+    padding: 360px 30px 50px 30px;
+
+}
+.flightCard h2, .hotelCard h2{
+    text-align: center;
+}
+.flightCard p, .hotelCard p{
+    text-align: center;
+    font-weight: 600px;
+    margin-bottom: 16px;
+}
+.flightCard button, .hotelCard button{
+    margin: auto;
+}
+
+.hotelCard{
+    background-image: url(./Rectangle\ 41.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    flex-grow: 1;
+    color: white;
+    padding: 360px 30px 50px 30px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+    </style>
+</head>
+
+<body>
+    <div class="mainContent">
+        <div class="heroSection">
+            <div class="navbar">
+                <div class="navLeft">
+                    <a href="https://www.makemytrip.com/flights/" class="findFlight">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.13em" height="1em" viewBox="0 0 576 512">
+                            <path fill="currentColor"
+                                d="M482.3 192c34.2 0 93.7 29 93.7 64c0 36-59.5 64-93.7 64H365.7L265.2 495.9c-5.7 10-16.3 16.1-27.8 16.1h-56.2c-10.6 0-18.3-10.2-15.4-20.4l49-171.6H112l-43.2 57.6c-3 4-7.8 6.4-12.8 6.4H14c-7.8 0-14-6.3-14-14c0-1.3.2-2.6.5-3.9L32 256L.5 145.9c-.4-1.3-.5-2.6-.5-3.9c0-7.8 6.3-14 14-14h42c5 0 9.8 2.4 12.8 6.4L112 192h102.9l-49-171.6c-3-10.2 4.7-20.4 15.3-20.4h56.2c11.5 0 22.1 6.2 27.8 16.1L365.7 192z" />
+                        </svg>
+                        <span>Find Flights</span>
+                    </a>
+                    <a href="findstay.html" class="findStay">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                                d="M432 230.7a79.4 79.4 0 0 0-32-6.7H112a79.5 79.5 0 0 0-32 6.69A80.09 80.09 0 0 0 32 304v112a16 16 0 0 0 32 0v-8a8.1 8.1 0 0 1 8-8h368a8.1 8.1 0 0 1 8 8v8a16 16 0 0 0 32 0V304a80.09 80.09 0 0 0-48-73.3M376 80H136a56 56 0 0 0-56 56v72a4 4 0 0 0 5.11 3.84A95.5 95.5 0 0 1 112 208h4.23a4 4 0 0 0 4-3.55A32 32 0 0 1 152 176h56a32 32 0 0 1 31.8 28.45a4 4 0 0 0 4 3.55h24.46a4 4 0 0 0 4-3.55A32 32 0 0 1 304 176h56a32 32 0 0 1 31.8 28.45a4 4 0 0 0 4 3.55h4.2a95.5 95.5 0 0 1 26.89 3.85A4 4 0 0 0 432 208v-72a56 56 0 0 0-56-56" />
+                        </svg>
+                        <span>Find Stays</span>
+                    </a>
+                </div>
+                <img src="/Logo (4).png" alt="Logo">
+                <div class="navRight">
+                    <button class="btn btn-tb">Login</button>
+                    <button class="btn btn-wb">Sign Up</button>
+
+                </div>
+            </div>
+            <div class="heroContent">
+                <h3>Helping Others</h3>
+                <h1>LIVE & TRAVEL</h1>
+                <p>Special offers to suit your plan</p>
+            </div>
+        </div>
+        <div class="flightForm">
+            <div class="formTitle">
+                <div class="findFlight">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.13em" height="1em" viewBox="0 0 576 512">
+                        <path fill="currentColor"
+                            d="M482.3 192c34.2 0 93.7 29 93.7 64c0 36-59.5 64-93.7 64H365.7L265.2 495.9c-5.7 10-16.3 16.1-27.8 16.1h-56.2c-10.6 0-18.3-10.2-15.4-20.4l49-171.6H112l-43.2 57.6c-3 4-7.8 6.4-12.8 6.4H14c-7.8 0-14-6.3-14-14c0-1.3.2-2.6.5-3.9L32 256L.5 145.9c-.4-1.3-.5-2.6-.5-3.9c0-7.8 6.3-14 14-14h42c5 0 9.8 2.4 12.8 6.4L112 192h102.9l-49-171.6c-3-10.2 4.7-20.4 15.3-20.4h56.2c11.5 0 22.1 6.2 27.8 16.1L365.7 192z" />
+                    </svg>
+                    <span>Find Flights</span>
+                </div>
+                <div class="findStay">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
+                        <path fill="currentColor"
+                            d="M432 230.7a79.4 79.4 0 0 0-32-6.7H112a79.5 79.5 0 0 0-32 6.69A80.09 80.09 0 0 0 32 304v112a16 16 0 0 0 32 0v-8a8.1 8.1 0 0 1 8-8h368a8.1 8.1 0 0 1 8 8v8a16 16 0 0 0 32 0V304a80.09 80.09 0 0 0-48-73.3M376 80H136a56 56 0 0 0-56 56v72a4 4 0 0 0 5.11 3.84A95.5 95.5 0 0 1 112 208h4.23a4 4 0 0 0 4-3.55A32 32 0 0 1 152 176h56a32 32 0 0 1 31.8 28.45a4 4 0 0 0 4 3.55h24.46a4 4 0 0 0 4-3.55A32 32 0 0 1 304 176h56a32 32 0 0 1 31.8 28.45a4 4 0 0 0 4 3.55h4.2a95.5 95.5 0 0 1 26.89 3.85A4 4 0 0 0 432 208v-72a56 56 0 0 0-56-56" />
+                    </svg>
+                    <span>Find Stays</span>
+                </div>
+            </div>
+            <form action="">
+                <div class="inputFirst">
+                    <label for="">From-To</label>
+                    <input type="text" placeholder="Lahore - Karachi">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                            <path fill="currentColor"
+                                d="M10.28 1.72a.75.75 0 1 0-1.06 1.06L10.44 4H3.75a.75.75 0 0 0 0 1.5h6.69L9.22 6.72a.75.75 0 0 0 1.06 1.06l2.5-2.5a.75.75 0 0 0 0-1.06zm-3.5 7.56a.75.75 0 0 0-1.06-1.06l-2.5 2.5a.75.75 0 0 0 0 1.06l2.5 2.5a.75.75 0 0 0 1.06-1.06L5.56 12h6.69a.75.75 0 0 0 0-1.5H5.56z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="inputFirst">
+                    <label for="">Trip</label>
+                    <input type="text" placeholder="Return ">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                            <path fill="currentColor"
+                                d="M10.28 1.72a.75.75 0 1 0-1.06 1.06L10.44 4H3.75a.75.75 0 0 0 0 1.5h6.69L9.22 6.72a.75.75 0 0 0 1.06 1.06l2.5-2.5a.75.75 0 0 0 0-1.06zm-3.5 7.56a.75.75 0 0 0-1.06-1.06l-2.5 2.5a.75.75 0 0 0 0 1.06l2.5 2.5a.75.75 0 0 0 1.06-1.06L5.56 12h6.69a.75.75 0 0 0 0-1.5H5.56z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="inputFirst">
+                    <label for="">Depart- Return</label>
+                    <input type="text" placeholder="07 Nov 22 - 13 Nov 22">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                            <path fill="currentColor"
+                                d="M10.28 1.72a.75.75 0 1 0-1.06 1.06L10.44 4H3.75a.75.75 0 0 0 0 1.5h6.69L9.22 6.72a.75.75 0 0 0 1.06 1.06l2.5-2.5a.75.75 0 0 0 0-1.06zm-3.5 7.56a.75.75 0 0 0-1.06-1.06l-2.5 2.5a.75.75 0 0 0 0 1.06l2.5 2.5a.75.75 0 0 0 1.06-1.06L5.56 12h6.69a.75.75 0 0 0 0-1.5H5.56z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="inputFirst">
+                    <label for="">Passenger - Class</label>
+                    <input type="text" placeholder="1 Passenger, Economy">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                            <path fill="currentColor"
+                                d="M10.28 1.72a.75.75 0 1 0-1.06 1.06L10.44 4H3.75a.75.75 0 0 0 0 1.5h6.69L9.22 6.72a.75.75 0 0 0 1.06 1.06l2.5-2.5a.75.75 0 0 0 0-1.06zm-3.5 7.56a.75.75 0 0 0-1.06-1.06l-2.5 2.5a.75.75 0 0 0 0 1.06l2.5 2.5a.75.75 0 0 0 1.06-1.06L5.56 12h6.69a.75.75 0 0 0 0-1.5H5.56z" />
+                        </svg>
+                    </div>
+                </div>
+            </form>
+            <div class="btnWrapper">
+                <button class="btn btn-tbb">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" />
+                    </svg>
+                    <span>Add Promo Code</span></button>
+                <button class="btn btn-cb">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <g fill="none">
+                            <path
+                                d="M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036c-.01-.003-.019 0-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
+                            <path fill="currentColor"
+                                d="M20.235 5.686c.432-1.195-.726-2.353-1.921-1.92L3.709 9.048c-1.199.434-1.344 2.07-.241 2.709l4.662 2.699l4.163-4.163a1 1 0 0 1 1.414 1.414L9.544 15.87l2.7 4.662c.638 1.103 2.274.957 2.708-.241z" />
+                        </g>
+                    </svg>
+                    <span>Show Flights</span>
+                </button>
+
+            </div>
+        </div>
+        <div class="destination">
+            <div class="destinationTitle">
+                <div class="destinationText">
+                    <h2>Plan your perfect trip</h2>
+                    <p>Search Flights & Places Hire to our most popular destinations</p>
+                </div>
+                <button class="btn btn-outline">
+                    See more places
+                </button>
+            </div>
+            <div class="destinationCardWrapper">
+                <div class="cardWrapper">
+                    <img src="/Frame 74 (1).png"">
+                    <div>
+                        <h4>
+                            Istanbul,Turkey
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+                <div class="cardWrapper">
+                    <img src="/Frame 197.png" alt="">
+                    <div>
+                        <h4>
+                            Sydney, Australia
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+                <div class="cardWrapper">
+                    <img src="/Frame 197 (1).png" alt="">
+                    <div>
+                        <h4>
+                            Baku, Azerbaijan
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+                <div class="cardWrapper">
+                    <img src="/Frame 74.png" alt="">
+                    <div>
+                        <h4>
+                            Malé, Maldives
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+                <div class="cardWrapper">
+                    <img src="/Rectangle 3.png" alt="">
+                    <div>
+                        <h4>
+                            Paris, France
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+                <div class="cardWrapper">
+                    <img src="/Frame 197 (2).png" alt="">
+                    <div>
+                        <h4>
+                            New York, US
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+                <div class="cardWrapper">
+                    <img src="/Frame 197 (3).png" alt="">
+                    <div>
+                        <h4>
+                            London, UK
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+                <div class="cardWrapper">
+                    <img src="/Frame 198.png" alt="">
+                    <div>
+                        <h4>
+                            Tokyo, Japan
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+                <div class="cardWrapper">
+                    <img src="/Frame 197 (4).png" alt="">
+                    <div>
+                        <h4>
+                            Dubai, UAE
+                        </h4>
+                        <span>Flights</span>
+                        <span>.</span>
+                        <span>Hotels</span>
+                        <span>.</span>
+                        <span>Resorts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flightHotel">
+            <div class="flightCard">
+                <h2>Flights</h2>
+                <p>Search Flights & Places Hire to our most popular <br>destinations</p>
+                <button class="btn btn-cb">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <g fill="none">
+                            <path
+                                d="M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036c-.01-.003-.019 0-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
+                            <path fill="currentColor"
+                                d="M20.235 5.686c.432-1.195-.726-2.353-1.921-1.92L3.709 9.048c-1.199.434-1.344 2.07-.241 2.709l4.662 2.699l4.163-4.163a1 1 0 0 1 1.414 1.414L9.544 15.87l2.7 4.662c.638 1.103 2.274.957 2.708-.241z" />
+                        </g>
+                    </svg>
+                    <span>Show Flights</span>
+                </button>
+            </div>
+            <div class="hotelCard">
+                <h2>Hotels</h2>
+                <p>Search hotels & Places Hire to our most popular <br>destinations</p>
+                <button class="btn btn-cb">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <g fill="none">
+                            <path
+                                d="M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036c-.01-.003-.019 0-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
+                            <path fill="currentColor"
+                                d="M20.235 5.686c.432-1.195-.726-2.353-1.921-1.92L3.709 9.048c-1.199.434-1.344 2.07-.241 2.709l4.662 2.699l4.163-4.163a1 1 0 0 1 1.414 1.414L9.544 15.87l2.7 4.662c.638 1.103 2.274.957 2.708-.241z" />
+                        </g>
+                    </svg>
+                    <span>Show Flights</span>
+                </button>
+            </div>
+        </div>
+        <div class="reviews">
+            <div class="destinationTitle">
+                <div class="destinationText">
+                    <h2>Reviews</h2>
+                    <p>What people says about Golobe facilities</p>
+                </div>
+                <button class="btn btn-outline">
+                    See All
+                </button>
+            </div>
+
+            <div class="reviewCardWrapper">
+                <div class="reviewPseudo">
+                    <div class="reviewCard">
+                        <h4>“A real sense of community, nurtured”</h4>
+                        <p>Really appreciate the help and support from the staff during these tough times. Shoutout to
+                            Katie for helping me always, even when I was out of the country. And always available when
+                            needed.</p>
+                        <h5>View more</h5>
+                        <div class="stars"></div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    
+                    <h3>Olga</h3>
+                    <p>Weave Studios – Kai Tak</p>
+                    <div class="companyWrap">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
+                                fill="#FFC107" />
+                            <path
+                                d="M3.15234 7.3455L6.43784 9.755C7.32684 7.554 9.47984 6 11.9993 6C13.5288 6 14.9203 6.577 15.9798 7.5195L18.8083 4.691C17.0223 3.0265 14.6333 2 11.9993 2C8.15834 2 4.82734 4.1685 3.15234 7.3455Z"
+                                fill="#FF3D00" />
+                            <path
+                                d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5718 17.5742 13.3037 18.001 12 18C9.399 18 7.1905 16.3415 6.3585 14.027L3.0975 16.5395C4.7525 19.778 8.1135 22 12 22Z"
+                                fill="#4CAF50" />
+                            <path
+                                d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
+                                fill="#1976D2" />
+                        </svg>
+                        <span>Google</span>
+                    </div>
+                    <img src="/Rectangle 36.png">
+                    </div>
+                </div>
+                <div class="reviewPseudo">
+                    <div class="reviewCard">
+                        <h4>“A real sense of community, nurtured”</h4>
+                        <p>Really appreciate the help and support from the staff during these tough times. Shoutout to
+                            Katie for helping me always, even when I was out of the country. And always available when
+                            needed.</p>
+                        <h5>View more</h5>
+                        <div class="stars"></div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    
+                    <h3>Olga</h3>
+                    <p>Weave Studios – Kai Tak</p>
+                    <div class="companyWrap">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
+                                fill="#FFC107" />
+                            <path
+                                d="M3.15234 7.3455L6.43784 9.755C7.32684 7.554 9.47984 6 11.9993 6C13.5288 6 14.9203 6.577 15.9798 7.5195L18.8083 4.691C17.0223 3.0265 14.6333 2 11.9993 2C8.15834 2 4.82734 4.1685 3.15234 7.3455Z"
+                                fill="#FF3D00" />
+                            <path
+                                d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5718 17.5742 13.3037 18.001 12 18C9.399 18 7.1905 16.3415 6.3585 14.027L3.0975 16.5395C4.7525 19.778 8.1135 22 12 22Z"
+                                fill="#4CAF50" />
+                            <path
+                                d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
+                                fill="#1976D2" />
+                        </svg>
+                        <span>Google</span>
+                    </div>
+                    <img src="/Rectangle 36.png">
+                    </div>
+                </div>
+                <div class="reviewPseudo">
+                    <div class="reviewCard">
+                        <h4>“A real sense of community, nurtured”</h4>
+                        <p>Really appreciate the help and support from the staff during these tough times. Shoutout to
+                            Katie for helping me always, even when I was out of the country. And always available when
+                            needed.</p>
+                        <h5>View more</h5>
+                        <div class="stars"></div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    
+                    <h3>Olga</h3>
+                    <p>Weave Studios – Kai Tak</p>
+                    <div class="companyWrap">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
+                                fill="#FFC107" />
+                            <path
+                                d="M3.15234 7.3455L6.43784 9.755C7.32684 7.554 9.47984 6 11.9993 6C13.5288 6 14.9203 6.577 15.9798 7.5195L18.8083 4.691C17.0223 3.0265 14.6333 2 11.9993 2C8.15834 2 4.82734 4.1685 3.15234 7.3455Z"
+                                fill="#FF3D00" />
+                            <path
+                                d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5718 17.5742 13.3037 18.001 12 18C9.399 18 7.1905 16.3415 6.3585 14.027L3.0975 16.5395C4.7525 19.778 8.1135 22 12 22Z"
+                                fill="#4CAF50" />
+                            <path
+                                d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z"
+                                fill="#1976D2" />
+                        </svg>
+                        <span>Google</span>
+                    </div>
+                    <img src="/Rectangle 36.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="subscribe">
+                <div class="subscribeContent">
+                    <h2>Subscribe<br> Newsletter</h2>
+                    <h3>The Travel</h3>
+                    <p>Get inspired! Receive travel discounts, tips and behind the scenes stories.</p>
+                    <form action="">
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </form>
+                </div>
+                <img src="./subscribeImg.png" alt="">
+            </div>
+            <div class="footerContent">
+                <div class="footer1">
+                    <img src="./Frame 2608750.png" alt="">
+                    <div class="socialMeadias">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-square-instagram"></i>
+                    </div>
+                </div>
+                
+                <div class="footer2">
+                    <h4>Our Destination</h4>
+                    <ul>
+                        <li>Canada</li>
+                        <li>Alaska</li>
+                        <li>France</li>
+                        <li>Iceland</li>
+                    </ul>
+                </div>
+                <div class="footer2">
+                    <h4>Our Activities</h4>
+                    <ul>
+                        <li>Xanada</li>
+                        <li>Alaska</li>
+                        <li>France</li>
+                        <li>Iceland</li>
+                    </ul>
+                </div>
+                <div class="footer2">
+                    <h4>Our Destination</h4>
+                    <ul>
+                        <li>Canada</li>
+                        <li>Alaska</li>
+                        <li>France</li>
+                        <li>Iceland</li>
+                    </ul>
+                </div>
+                <div class="footer2">
+                    <h4>Our Destination</h4>
+                    <ul>
+                        <li>Canada</li>
+                        <li>Alaska</li>
+                        <li>France</li>
+                        <li>Iceland</li>
+                    </ul>
+                </div>
+                
+                <div class="footer2">
+                    <h4>Our Destination</h4>
+                    <ul>
+                        <li>Canada</li>
+                        <li>Alaska</li>
+                        <li>France</li>
+                        <li>Iceland</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
